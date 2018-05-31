@@ -10,8 +10,6 @@ Url:		https://nitroshare.net
 # https://github.com/nitroshare/nitroshare-desktop
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
 Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
-Source2:	nitroshare-0.3.4_ru.tar.gz
-Patch0:		nitroshare-0.3.4-desktop_file.patch
 BuildRequires:	cmake
 BuildRequires:	kde5-macros
 BuildRequires:	qt5-linguist-tools
@@ -85,11 +83,6 @@ caja file manager.
 
 %prep
 %setup -q
-%patch0 -p1
-
-pushd src/data/ts
-tar -xvzf %{SOURCE2}
-popd
 
 %build
 %cmake_qt5
