@@ -18,7 +18,8 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5DBus)
 # extra BRs needed for Mate, Gnome and Cinnamon DEs
-BuildRequires:	pkgconfig(appindicator-0.1)
+#BuildRequires:	pkgconfig(appindicator-0.1)
+BuildRequires: pkgconfig(appindicator3-0.1)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libnotify)
 
