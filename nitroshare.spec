@@ -38,7 +38,7 @@ Features:
 %doc README.md
 %{_bindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_kde5_services}/nitroshare_addtoservicemenu.desktop
+%{_datadir}/kservices5/nitroshare_addtoservicemenu.desktop
 %{_iconsdir}/hicolor/*/*/%{name}*.svg
 %{_iconsdir}/breeze*/*/*/%{name}*.svg
 %{_mandir}/man1/%{name}.1*
