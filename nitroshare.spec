@@ -13,6 +13,7 @@ Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}
 BuildRequires:	cmake
 BuildRequires:	qt5-macros
 BuildRequires:	qt5-linguist-tools
+BuildRequires: qt5-qtbase-devel
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Svg)
