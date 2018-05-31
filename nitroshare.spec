@@ -11,7 +11,7 @@ Url:		https://nitroshare.net
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
 Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
 BuildRequires:	cmake
-BuildRequires:	kde5-macros
+BuildRequires:	qt5-macros
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5Widgets)
