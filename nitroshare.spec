@@ -10,6 +10,7 @@ Url:		https://nitroshare.net
 # https://github.com/nitroshare/nitroshare-desktop
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
 #Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
+Patch0: fix-build-with-qt5.11.patch
 BuildRequires:	cmake
 BuildRequires: cmake(Qt5Core)
 BuildRequires:	qt5-macros
@@ -86,6 +87,7 @@ caja file manager.
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %cmake_qt5
