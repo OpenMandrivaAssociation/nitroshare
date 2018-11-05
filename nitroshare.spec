@@ -9,7 +9,7 @@ Group:		Networking/File transfer
 Url:		https://nitroshare.net
 # https://github.com/nitroshare/nitroshare-desktop
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
-#Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
+# Patch to fix build with new Qt5.11 (QStyle error). https://github.com/nitroshare/nitroshare-desktop/issues/213 (penguin)
 Patch0: fix-build-with-qt5.11.patch
 BuildRequires:	cmake
 BuildRequires: cmake(Qt5Core)
@@ -64,7 +64,7 @@ nautilus file manager.
 
 %files nautilus
 %doc README.md
-%{_datadir}/nautilus-python/extensions/*.py*
+%{_datadir}/nautilus-python/extensions/*
 
 #----------------------------------------------------
 
@@ -81,7 +81,7 @@ caja file manager.
 
 %files caja
 %doc README.md
-%{_datadir}/caja-python/extensions/*.py*
+%{_datadir}/caja-python/extensions/*
 
 #----------------------------------------------------
 
