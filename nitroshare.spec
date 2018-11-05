@@ -3,24 +3,26 @@
 Summary:	A simple tool for sending files to other machines on a local network
 Name:		nitroshare
 Version:	0.3.4
-Release:	3
+Release:	1
 License:	MIT
 Group:		Networking/File transfer
 Url:		https://nitroshare.net
 # https://github.com/nitroshare/nitroshare-desktop
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
-Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
-Source2:	nitroshare-0.3.4_ru.tar.gz
-Patch0:		nitroshare-0.3.4-desktop_file.patch
+# Patch to fix build with new Qt5.11 (QStyle error). https://github.com/nitroshare/nitroshare-desktop/issues/213 (penguin)
+Patch0: fix-build-with-qt5.11.patch
 BuildRequires:	cmake
-BuildRequires:	kde5-macros
+BuildRequires: cmake(Qt5Core)
+BuildRequires:	qt5-macros
 BuildRequires:	qt5-linguist-tools
+BuildRequires: qt5-qtbase-devel
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5DBus)
 # extra BRs needed for Mate, Gnome and Cinnamon DEs
-BuildRequires:	pkgconfig(appindicator-0.1)
+#BuildRequires:	pkgconfig(appindicator-0.1)
+BuildRequires: pkgconfig(appindicator3-0.1)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libnotify)
 
@@ -37,7 +39,7 @@ Features:
 %doc README.md
 %{_bindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_kde5_services}/nitroshare_addtoservicemenu.desktop
+%{_datadir}/kservices5/nitroshare_addtoservicemenu.desktop
 %{_iconsdir}/hicolor/*/*/%{name}*.svg
 %{_iconsdir}/breeze*/*/*/%{name}*.svg
 %{_mandir}/man1/%{name}.1*
@@ -62,7 +64,7 @@ nautilus file manager.
 
 %files nautilus
 %doc README.md
-%{_datadir}/nautilus-python/extensions/*.py*
+%{_datadir}/nautilus-python/extensions/*
 
 #----------------------------------------------------
 
@@ -79,17 +81,13 @@ caja file manager.
 
 %files caja
 %doc README.md
-%{_datadir}/caja-python/extensions/*.py*
+%{_datadir}/caja-python/extensions/*
 
 #----------------------------------------------------
 
 %prep
 %setup -q
-%patch0 -p1
-
-pushd src/data/ts
-tar -xvzf %{SOURCE2}
-popd
+%autopatch -p1
 
 %build
 %cmake_qt5
