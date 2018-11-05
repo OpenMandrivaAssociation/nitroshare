@@ -9,7 +9,7 @@ Group:		Networking/File transfer
 Url:		https://nitroshare.net
 # https://github.com/nitroshare/nitroshare-desktop
 Source0:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz
-Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
+#Source1:	https://launchpad.net/nitroshare/%{urlver}/%{version}/+download/%{name}-%{version}.tar.gz.asc
 BuildRequires:	cmake
 BuildRequires: cmake(Qt5Core)
 BuildRequires:	qt5-macros
