@@ -72,7 +72,8 @@ nautilus file manager.
 Summary:	Caja extension for Nitroshare
 Group:		Graphical desktop/MATE
 Requires:	%{name} = %{EVRD}
-Requires:	python-caja
+# Change from requires to recommends due to missing re/build package for cooker contib.
+Recommends:	python-caja
 BuildArch:	noarch
 
 %description caja
