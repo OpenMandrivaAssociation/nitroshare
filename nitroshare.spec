@@ -3,7 +3,7 @@
 Summary:	A simple tool for sending files to other machines on a local network
 Name:		nitroshare
 Version:	0.3.4
-Release:	2
+Release:	3
 License:	MIT
 Group:		Networking/File transfer
 Url:		https://nitroshare.net
